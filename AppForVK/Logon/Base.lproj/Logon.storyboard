@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Logon Form Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="LogonFormController" id="BYZ-38-t0r" customClass="LogonFormController" customModule="AppForVK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYa-2G-TMn">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="veq-BC-D0b">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="veq-BC-D0b" firstAttribute="leading" secondItem="GYa-2G-TMn" secondAttribute="leading" id="78N-6S-16Z"/>
+                                    <constraint firstItem="veq-BC-D0b" firstAttribute="top" secondItem="GYa-2G-TMn" secondAttribute="top" id="7Cq-bp-lJq"/>
+                                    <constraint firstAttribute="bottom" secondItem="veq-BC-D0b" secondAttribute="bottom" id="bJL-bC-13f"/>
+                                    <constraint firstItem="veq-BC-D0b" firstAttribute="centerX" secondItem="GYa-2G-TMn" secondAttribute="centerX" id="e2o-t4-pVW"/>
+                                    <constraint firstAttribute="trailing" secondItem="veq-BC-D0b" secondAttribute="trailing" id="fuR-lf-Np8"/>
+                                    <constraint firstItem="veq-BC-D0b" firstAttribute="centerY" secondItem="GYa-2G-TMn" secondAttribute="centerY" id="hhX-rh-9lC"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GYa-2G-TMn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Lro-gZ-NR4"/>
+                            <constraint firstItem="GYa-2G-TMn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Qwn-s5-elx"/>
+                            <constraint firstItem="GYa-2G-TMn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lTL-sL-ken"/>
+                            <constraint firstItem="GYa-2G-TMn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zA7-Kh-m2Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="GYa-2G-TMn" id="MnL-11-zh3"/>
+                        <outlet property="webView" destination="veq-BC-D0b" id="HIO-q0-dGb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
