@@ -42,6 +42,7 @@ class VkNewsService {
                 var news = [News]()
                 var users = [Owner]()
                 var groups = [Owner]()
+                var nextFrom = ""
                 
                 let jsonGroup = DispatchGroup()
                 
@@ -55,6 +56,11 @@ class VkNewsService {
                 
                 DispatchQueue.global().async(group: jsonGroup) {
                     groups = json["response"]["groups"].arrayValue.map { Owner(json: $0) }
+                }
+                
+                DispatchQueue.global().async(group: jsonGroup) {
+                    nextFrom = json["response"]["next_from"].stringValue
+                    SessionApp.shared.nextFrom = nextFrom
                 }
                 
                 jsonGroup.notify(queue: DispatchQueue.main) {

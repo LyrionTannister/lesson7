@@ -16,6 +16,7 @@ class NewsTabViewController: UIViewController {
     var refreshControl: UIRefreshControl?
     
     let newsService = VkNewsService()
+    
     var vkNews: VkNews?
     
     var isLoading = false
@@ -23,15 +24,17 @@ class NewsTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureTableView()
         setupRefreshControl()
         
-        newsService.loadVkNewsFeed(
-            completion: { [weak self] news, error in
+        newsService.loadPartVKNews(startFrom: "",
+            completion: { [weak self] news, error, from in
                 guard let _ = error else {
-                    print(news?.items.count)
+                    
                     self?.vkNews = news
                     self?.tableView.reloadData()
+                    
                     return
                 }
                 
@@ -106,9 +109,9 @@ class NewsTabViewController: UIViewController {
 }
 
 extension NewsTabViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return UITableView.automaticDimension
     }
     
 }
@@ -134,7 +137,15 @@ extension NewsTabViewController: UITableViewDataSource {
         
         let owner = ownerGroup == nil ? ownerUser : ownerGroup
         
-        uCell.configure(with: vkNews?.items[indexPath.row], owner: owner)
+        let photoWidth = uVkNews.items[indexPath.section].attachments_photoWidth
+        let photoHeight = uVkNews.items[indexPath.section].attachments_photoHeight
+        
+        var ratio: CGFloat = 1.0000
+        if photoHeight != 0 {
+            ratio = CGFloat(photoWidth) / CGFloat(photoHeight)
+        }
+        
+        uCell.configure(with: vkNews?.items[indexPath.row], owner: owner, photoHeight: (tableView.frame.width / ratio))
         
         return uCell
     }

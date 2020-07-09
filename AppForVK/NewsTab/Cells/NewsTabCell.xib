@@ -168,6 +168,7 @@
             <connections>
                 <outlet property="commentsLabel" destination="buZ-Ce-tc0" id="X5e-SS-4m1"/>
                 <outlet property="dateLabel" destination="Ze6-tB-gh3" id="C26-8G-p8A"/>
+                <outlet property="heightConstraint" destination="nHE-Ba-lT9" id="9Qb-ac-EuY"/>
                 <outlet property="likeLabel" destination="0L4-H9-kWq" id="9ib-QK-wVd"/>
                 <outlet property="newsImageView" destination="WNH-FV-3VG" id="mD3-qi-4H0"/>
                 <outlet property="newsTextLabel" destination="lbl-ly-OTn" id="saT-ua-vCa"/>

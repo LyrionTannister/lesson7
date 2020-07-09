@@ -21,7 +21,9 @@ class NewsTabCell: UITableViewCell {
     @IBOutlet weak var viewedLabel: UILabel!
     @IBOutlet weak var ownerImageView: UIImageView!
     
-    func configure(with news: News?, owner: Owner?) {
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
+    func configure(with news: News?, owner: Owner?, photoHeight: CGFloat) {
         guard let uNews = news, let uOwner = owner else {
             return
         }
@@ -37,8 +39,9 @@ class NewsTabCell: UITableViewCell {
         
         newsTextLabel.text = uNews.postText
         
-        print(uNews.repostPhoto)
+        newsImageView.kf.setImage(with: URL(string: uNews.attachments_typePhoto))
         
-        newsImageView.kf.setImage(with: URL(string: uNews.repostPhoto))
+        heightConstraint.constant = photoHeight
     }
+    
 }
